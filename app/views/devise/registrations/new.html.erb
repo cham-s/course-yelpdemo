@@ -4,10 +4,17 @@
   <%= devise_error_messages! %>
 
   <div class="form-group">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, class: "form-control" %>
+    <%= f.label :firs_name %><br />
+    <%= f.text_field :firs_name, autofocus: true, class: "form-control" %>
   </div>
-
+  <div class="form-group">
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, class: "form-control" %>
+  </div>
   <div class="form-group">
     <%= f.label :password %>
     <% if @validatable %>
