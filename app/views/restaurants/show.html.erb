@@ -6,7 +6,7 @@
         </h2>
          <div class="star-rating" data-score="<%= @avg_rating %>">
           </div>
-          <p><%= "#{ @reviews.length }" %></p>
+          <p><%= "reviews #{ @reviews.length }" %></p>
         <p>
           <strong>Address:</strong>
           <%= @restaurant.address %>
@@ -32,12 +32,20 @@
           <%= link_to "Write a review", new_restaurant_review_path(@restaurant), class: "btn btn-primary" %>
         </div>
       <% else  %>
-        <% @reviews.each do |review| %>
-          <div class="star-rating" data-score="<%= review.rating %>">
-          </div>
-         <p><%= review.comment %></p>
-        <% end %>
+        <table class="table">
+          <tbody>
+          <% @reviews.each do |review| %>
+            <tr>
+              <td>
+                <div class="star-rating" data-score="<%= review.rating %>"></div>
+                <p><%= h(review.comment).gsub(/\n/, '<br/>').html_safe %></p>
+              </td>
+            </tr>
+          <% end %>
       <% end %>
+          </tbody>
+        </table>
+        
     </div>
   </div>
 
