@@ -31,11 +31,20 @@
         </div>
       <% else  %>
         <% @reviews.each do |review| %>
-         <p><%= review.rating %></p>
+          <div class="star-rating" data-score="<%= review.rating %>">
+          </div>
          <p><%= review.comment %></p>
         <% end %>
       <% end %>
     </div>
   </div>
 
-
+  <script>
+    $('.star-rating').raty({ 
+      path: 'https://s3-eu-west-1.amazonaws.com/elpdemo/stars/',
+      readOnly: true,
+      score   : function(){
+        return $(this).attr('data-score');   
+        }
+     }); 
+  </script>
