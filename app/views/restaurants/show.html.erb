@@ -24,7 +24,18 @@
         <%= link_to "Write a review", new_restaurant_review_path(@restaurant), class: "btn btn-primary" %><br><br>
           <%= link_to 'Edit', edit_restaurant_path(@restaurant), class: "btn btn-primary" %> |
           <%= link_to 'Back', restaurants_path, class: "btn btn-primary" %>
+          <br>
+          <br>
+        <iframe
+          width="230"
+          height="230"
+          frameborder="0" style="border:0"
+          src="https://www.google.com/maps/embed/v1/place?key=AIzaSyD6_rT1eIrJ6A3xRT-CiLOf8v3UcxPRSS4
+          &q=<%= @restaurant.address.parameterize  %>">
+        </iframe>
     </div>
+
+
     <div class="col-md-9">
       <% if @reviews.blank?  %>
         <div class="panel">
